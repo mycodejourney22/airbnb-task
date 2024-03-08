@@ -1,5 +1,9 @@
 <div class="container">
+<%= link_to "Add a new flat", new_flat_path if current_user.is_host %>
   <% @flats.each do |flat| %>
-    <p><%= flat.address %></p>
+    <div class="flat_card">
+      <p class="flat_card flat_card--title"><%= link_to flat.address, flat_path(flat) %></p>
+      <%= cl_image_tag flat.photos.last.key, height: 300, width: 400, class: "flat_card flat_card--img" if flat.photos.attached? %>
+    </div>
   <% end %>
 </div>
