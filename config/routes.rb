@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bookings/new'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -9,5 +10,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :flats, only: [:new, :index, :create]
+  resources :flats, only: [:new, :index, :create, :show] do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, only: [:index]
 end

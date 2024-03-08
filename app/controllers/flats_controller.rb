@@ -7,6 +7,10 @@ class FlatsController < ApplicationController
     @flat = Flat.new
   end
 
+  def show
+    @flat = Flat.find(params[:id])
+  end
+
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
@@ -20,7 +24,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:address, :price, :guest, :flat_type)
+    params.require(:flat).permit(:address, :price, :guest, :flat_type, photos: [])
   end
 
 end

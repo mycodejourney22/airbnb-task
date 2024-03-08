@@ -1,0 +1,14 @@
+
+<div class="container">
+<h1>Create a booking</h1>
+<% if @booking.errors[:base].any? %>
+  <% error_type = @booking.errors[:base].first %>
+  <p><%= "Error Type: #{error_type}" %></p>
+<% end %>
+<%= link_to "Back to Flat", flat_path(@flat) %>
+  <%= simple_form_for([@flat, @booking]) do |f| %>
+    <%= f.input :check_in_date %>
+    <%= f.input :check_out_date %>
+    <%= f.submit %>
+  <% end %>
+</div>
