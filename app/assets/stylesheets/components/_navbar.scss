@@ -1,12 +1,84 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+nav, .navbar-navigation{
+  display: flex;
+
+  h1{
+    font-size: 1.25rem;
+  }
+
+  .navbar-navigation-item{
+    padding-left: $margin * 2 ;
+  }
+
+  a{
+    text-decoration: none;
+    color: $gray;
+  }
+
+
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+nav, .search-field{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.search-field{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form{
+  width: 60%;
+  position: relative;
+  font-size: 0.75rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1);
+
+  .address-label, .guest-label{
+    position: absolute;
+    top: 8px;
+    font-weight: 500;
+  }
+
+  .address-label{
+    left: 4%;
+  }
+
+  .guest-label{
+    left: 35%;
+  }
+
+  .search-form__submitbtn{
+    background-color: #FF385C;
+    color: white;
+    border: none;
+    padding: $margin *1.5  $margin * 4;
+    border-radius: 2rem;
+    position: absolute;
+    left: 78%;
+    top: 14%;
+  }
+
+
+}
+
+.navbar-search{
+  height: 4rem;
+  border-radius: 2rem;
+  padding: $margin * 3;
+  padding-top: 2.5rem;
+  width: 30%;
+  border: none;
+
+  &:hover {
+    background-color: $light-gray; // Set the background color on focus
+  }
+  &:focus{
+    border: none;
+  }
+}
+
+hr{
+  color: #b1abab;;
 }

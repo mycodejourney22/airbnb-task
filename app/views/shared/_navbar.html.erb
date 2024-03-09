@@ -1,0 +1,23 @@
+<div class="container ">
+  <nav class="navbar ">
+    <h1 class="navbar-logo">airbnb</h1>
+    <div class="navbar-navigation">
+      <p class="navbar-navigation-item">Stays</p>
+      <p class="navbar-navigation-item">Experiences</p>
+      <p class="navbar-navigation-item">Online Experiences</p>
+    </div>
+    <div class="navbar-navigation">
+      <p ><%= link_to "Airbnb your home", new_flat_path if current_user.is_host %></p>
+    </div>
+  </nav>
+  <div class="search-field">
+    <%= form_tag(flats_path, method: :get, class: 'search-form') do %>
+      <%= label_tag :address, "Where", class: "address-label" %>
+      <%= text_field_tag :address, params[:address], placeholder: "Search destinations", class: "navbar-search" %>
+      <%= label_tag :guest, "Guest" , class: "guest-label"%>
+      <%= text_field_tag :guest, params[:guest], placeholder: "Search destinations", class: "navbar-search" %>
+      <%= submit_tag "Search", class: "search-form__submitbtn" %>
+    <% end %>
+  </div>
+<hr>
+</div>

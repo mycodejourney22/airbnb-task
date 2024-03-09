@@ -1,6 +1,13 @@
 class FlatsController < ApplicationController
   def index
-    @flats = Flat.all
+    if params.present?
+      @flats = Flat.where(final_query(params))
+    else
+      @flats = Flat.all
+    end
+  end
+
+  def search
   end
 
   def new
@@ -25,6 +32,17 @@ class FlatsController < ApplicationController
 
   def flat_params
     params.require(:flat).permit(:address, :price, :guest, :flat_type, photos: [])
+  end
+
+  def final_query(params)
+    query_conditions = []
+    if params[:address].present?
+      query_conditions << "address ILIKE '%#{params[:address]}%'"
+    end
+    if params[:guest].present?
+      query_conditions << "guest ILIKE '%#{params[:guest]}%'"
+    end
+    query_conditions.join(' AND ')
   end
 
 end
