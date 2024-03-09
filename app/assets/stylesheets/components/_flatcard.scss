@@ -1,0 +1,41 @@
+.card-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Three equal-width columns */
+  gap: 1rem;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.flat_card{
+  font-size: $font-size;
+  color: $gray;
+
+
+  .flat_card--img{
+    border-radius: 1rem;
+    height: 277px;
+    width: 263px;
+    object-fit: cover;
+  }
+
+  .flat_card--title, .card-listing-total{
+    font-weight: 500;
+  }
+
+  .card-listing-total{
+    text-decoration: underline;
+  }
+
+  .card-listing-subtitle{
+    color: #7d7c7c;
+  }
+
+
+  .card-listing{
+    display: flex;
+    justify-content: space-between;
+    margin-top: $margin;
+  }
+}

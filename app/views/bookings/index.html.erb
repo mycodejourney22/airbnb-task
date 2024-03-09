@@ -1,0 +1,22 @@
+<div class="container">
+  <%= link_to "All Listing", flats_path %>
+  <h1 >My flats bookings</h1>
+  <% @flat.each do |flat| %>
+    <% flat.bookings.each do |booking| %>
+      <p><%= "Customer Name: #{booking.user.first_name} #{booking.user.last_name}"%></p>
+      <p><%= "Address: #{flat.address}"%></p>
+      <p><%= "Check-in Date: #{booking.check_in_date}"%></p>
+      <p><%= "Check-out Date: #{booking.check_out_date}"%></p>
+    <% end %>
+  <% end %>
+  <p><%= "You do not have any booking yet" if @flat.count == 0 %></p>
+</div>
+
+<div class="container">
+  <h2>My Reservations</h2>
+  <% @bookings.each do |booking| %>
+      <p><%= "Address: #{booking.flat.address}"%></p>
+      <p><%= "Check-in Date: #{booking.check_in_date}"%></p>
+      <p><%= "Check-out Date: #{booking.check_out_date}"%></p>
+  <% end %>
+</div>
