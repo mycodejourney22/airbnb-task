@@ -1,9 +1,25 @@
 <div class="container">
 <%= link_to "Add a new flat", new_flat_path if current_user.is_host %>
-  <% @flats.each do |flat| %>
-    <div class="flat_card">
-      <p class="flat_card flat_card--title"><%= link_to flat.address, flat_path(flat) %></p>
-      <%= cl_image_tag flat.photos.last.key, height: 300, width: 400, class: "flat_card flat_card--img" if flat.photos.attached? %>
-    </div>
-  <% end %>
+  <div class="card-container">
+    <% @flats.each do |flat| %>
+      <%= link_to flat_path(flat) do %>
+        <div class="flat_card">
+          <%= cl_image_tag flat.photos.last.key, height: 300, width: 400, class: "flat_card flat_card--img" if flat.photos.attached? %>
+          <div>
+            <div class="flat_card card-listing">
+              <div>
+                <p class="flat_card flat_card--title"><%= flat.address%></p>
+                <p class="card-listing-subtitle">Professional Host</p>
+                <p class="card-listing-subtitle">31 Oct - 5 Nov</p>
+                <p class="card-listing-total">$727 total</p>
+              </div>
+              <div class="listing-review">
+              <p >⭐ 4.93</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

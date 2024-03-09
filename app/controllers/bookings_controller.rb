@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
   end
 
   def index
+    @flat = current_user.flats if current_user.is_host
+    @bookings = current_user.bookings
   end
 
   private
